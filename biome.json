@@ -1,12 +1,40 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.6.0/schema.json",
+	"files": {
+		"ignore": ["public", ".next", "node_modules"]
+	},
 	"organizeImports": {
 		"enabled": true
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true
+			"all": true,
+			"nursery": {
+				"all": true,
+				"noNodejsModules": "off",
+				"noUndeclaredDependencies": "off"
+			}
 		}
-	}
+	},
+	"overrides": [
+		{
+			"include": [
+				"next.config.mjs",
+				"error.tsx",
+				"layout.tsx",
+				"loading.tsx",
+				"not-found.tsx",
+				"page.tsx",
+				"template.tsx"
+			],
+			"linter": {
+				"rules": {
+					"style": {
+						"noDefaultExport": "off"
+					}
+				}
+			}
+		}
+	]
 }
